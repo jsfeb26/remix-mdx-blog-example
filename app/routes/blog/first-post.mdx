@@ -1,0 +1,28 @@
+---
+title: This is my title
+date: 2022-07-17
+meta:
+  title: This is my title
+---
+
+## {attributes.title}
+
+{attributes.date.toUTCString()}
+
+```js
+  const onStop = (e: DraggableEvent, data: DraggableData) => {
+    const containerWidth = containerRef.current?.clientWidth ?? 0
+    const maxX = containerWidth - DRAGGABLE_WIDTH
+
+    const dataX = data.x
+    let x = dataX
+
+    if (maxX > 0 && dataX > maxX) {
+      x = maxX
+    } else if (dataX < 0) {
+      x = 0
+    }
+
+    setDraggablePosition({ x, y: 0 })
+  }
+```
